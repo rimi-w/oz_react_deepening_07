@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Clock 컴포넌트
@@ -11,21 +11,31 @@ import { useState } from "react";
  * - 시계가 실행 중일 때 매초마다 시간을 업데이트합니다.
  **/
 function Clock() {
-  const [time, setTime] = useState(
-    new Date().toLocaleTimeString('ko-KR', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false,
-    })
-  );
+  const [time, setTime] = useState(new Date());
 
-  console.log(time)
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      // const now = time.getTime();
+      setTime(new Date())
+    }, 1000);
+    return () => {
+      clearInterval(intervalId);
+      console.log(`end`);
+    };
+  }, [time]);
+
+  const formattedTime = time.toLocaleTimeString(`ko-KR`, {
+    hour: `2-digit`,
+    minute: `2-digit`,
+    second: `2-digit`,
+    hour12: false,
+  });
+
   return (
     <>
       <div className="timer-container">
         <h1>Real Time Clock</h1>
-        <div className="time">{time}</div>
+        <div className="time">{formattedTime}</div>
       </div>
     </>
   );

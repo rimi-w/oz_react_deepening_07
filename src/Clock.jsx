@@ -25,7 +25,7 @@ function Clock() {
     <>
       <div className="timer-container">
         <h1>Real Time Clock</h1>
-        <div>{time}</div>
+        <div className="time">{time}</div>
       </div>
     </>
   );

@@ -31,15 +31,14 @@ function App() {
 
 
   return (
-    <>
+    <div className='clock'>
       <button className='onOffButton' onClick={handleComponentToggle}>
         {onOff()}
       </button>
-      {isStart === true ?
-        <div className="container">
-          <Clock />
-        </div> : null}
-    </>
+      <div className="container">
+        {isStart === true ? <Clock /> : null}
+      </div>
+    </div>
   );
 }
 

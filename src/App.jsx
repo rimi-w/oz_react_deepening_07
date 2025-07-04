@@ -26,13 +26,23 @@ function App() {
   );
 
   const onOff = () => (
-    isStart === false ? <div>Clock On</div> : <div>Clock Off</div>
+    isStart === false ?
+      <div>Clock On</div> :
+      <div>Clock Off</div>
   );
 
-
+  const buttonStyle = (
+    isStart === true ?
+      { backgroundColor: `#ff8a31d0` } :
+      { backgroundColor: `#dadadabe` }
+  );
   return (
     <div className='clock'>
-      <button className='onOffButton' onClick={handleComponentToggle}>
+      <button
+        className='onOffButton'
+        onClick={handleComponentToggle}
+        style={buttonStyle}
+      >
         {onOff()}
       </button>
       <div className="container">

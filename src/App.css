@@ -26,11 +26,21 @@ body {
 .onOffButton {
   width: 150px;
   height: 30px;
-  margin-top: 50px;
   padding-top: 10px;
   border: none;
   border-radius: 50% 50% 0 0;
   background-color: #dadadabe;
+}
+
+.onOffButton:hover {
+  background-color: #dadada;
+}
+
+.onOffButton:active {
+  height: 20px;
+  padding-top: 0;
+  background-color: #ff8a31d0;
+  transition: all 500ms ease;
 }
 
 .container {
